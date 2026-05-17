@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\usepackage[spanish, es-noquoting]{babel}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\title{Arquitectura Tarea (Lista de comandos)}
+\author{Jesús Romero  C.I. 32.590.184}
+
+\begin{document}
+\maketitle
+
+
+\begin{enumerate}
+
+    \item add (add)
+    \begin{itemize}
+        \item Definición: Suma de datos en registros.
+        \item Ejemplo: add \$s1,\$s2,\$s3
+        \item Significado: \$s1 = \$s2 + \$s3
+    \end{itemize}
+    
+    \item substract (sub)
+    \begin{itemize}
+        \item Definición: Resta de datos en registro.
+        \item Ejemplo: sub \$s1,\$s2,\$s3
+        \item Significado: \$s1 = \$s2 - \$s3
+    \end{itemize}
+
+    \item add immediate (addi)
+    \begin{itemize}
+        \item Definición: Usado para sumar constantes.
+        \item Ejemplo: addi \$s1,\$s2,100
+        \item Significado: \$s1 = \$s2 + 100
+    \end{itemize}
+
+    \item load word (lw)
+    \begin{itemize}
+        \item Definición: Convertir una palabra de memoria a registro.
+        \item Ejemplo: lw \$s1,100(\$s2)
+        \item Significado: \$s1 = Memory[\$s2 + 100]
+    \end{itemize}
+
+    \item store word (sw)
+    \begin{itemize}
+        \item Definición: Convertir una palabra de registro a memoria.
+        \item Ejemplo: sw \$s1,100(\$s2)
+        \item Significado: Memory[\$s2 + 100] = \$s1
+    \end{itemize}
+    
+    \item shift left logical (sll)
+    \begin{itemize}
+        \item Definición: Desplazamiento a la izquierda por constante.
+        \item Ejemplo: sll \$s1,\$s2,10
+        \item Significado: \$s1 = \$s2 $<<$ 10   
+    \end{itemize}
+
+    \item shift right logical (srl)
+    \begin{itemize}
+        \item Definición: Desplazamiento a la derecha por constante.
+        \item Ejemplo: srl \$s1,\$s2,10
+        \item Significado: \$s1 = \$s2 $>>$ 10
+    \end{itemize}
+
+    \item branch on equal (beq)
+    \begin{itemize}
+        \item Definición: Comprueba igualdad y bifurca relativo al PC.
+        \item Ejemplo: beq \$s1, \$s2, L
+        \item Significado: if (\$s1 == \$s2) go to L \\
+                           \hspace*{5em} PC + 4 + 100
+    \end{itemize}
+
+    \item branch on not equal (bne)
+    \begin{itemize}
+        \item Definición: Comprueba si no es igual y bifurca relativo al PC.
+        \item Ejemplo: \$s1,\$s2,L
+        \item Significado: if (\$s1 != \$s2) go to L \\
+                           \hspace*{5em} PC + 4 + 100
+    \end{itemize}
+
+    \item set on less than (slt)
+    \begin{itemize}
+        \item Definición: Compara si es menor que un registro.
+        \item Ejemplo: slt \$s1,\$s2,\$s3
+        \item Significado: if (\$s2 < \$s3) \$s1 = 1;
+                           else \$s1 = 0
+    \end{itemize}
+
+    \item set on less than immediate (slti)
+    \begin{itemize}
+        \item Definición: Compara si es menor que una constante
+        \item Ejemplo: slt \$s1,\$s2,100
+        \item Significado: if (\$s2 < 100) \$s1 = 1;
+                           else \$s1 = 0
+    \end{itemize}
+    
+\end{enumerate}
+
+\end{document}
